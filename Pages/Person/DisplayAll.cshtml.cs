@@ -1,14 +1,14 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Runtime.Intrinsics.X86;
 using ShoeShop.Data;
 
 namespace ShoeShop.Pages.Person
 {
-    public class DisplayAllModels : PageModel
+    public class DisplayAll : PageModel
     {
         private readonly DatabaseContext _ctx;
-        public DisplayAllModels(DatabaseContext ctx)
+        public DisplayAll(DatabaseContext ctx)
         {
             _ctx = ctx;
         }
