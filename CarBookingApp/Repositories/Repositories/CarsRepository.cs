@@ -27,7 +27,7 @@ namespace ShoeShopApp.Repositories.Repositories
                 .ToListAsync();
         }
 
-        public async Task<Product> GetCarWithDetails(int id)
+        public async Task<Product> ProductWithDetails(int id)
         {
             return await _context.Products
                 .Include(q => q.Make)

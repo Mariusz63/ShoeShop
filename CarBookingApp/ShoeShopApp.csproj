@@ -3,6 +3,11 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <StartupObject>ShoeShopApp.Program</StartupObject>
+    <AssemblyName>ShoeShopApp</AssemblyName>
+    <RootNamespace>ShoeShopApp</RootNamespace>
+    <PackageId>ShoeShopApp</PackageId>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +24,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
    
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.5" />
   </ItemGroup>
 
 </Project>

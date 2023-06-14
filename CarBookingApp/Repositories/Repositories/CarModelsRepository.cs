@@ -18,7 +18,7 @@ namespace ShoeShopApp.Repositories.Repositories
             this._context = context;
         }
 
-        public async Task<List<ProductModel>> GetCarModelsByMake(int makeId)
+        public async Task<List<ProductModel>> GetProductModelsByMake(int makeId)
         {
             var models = await _context.ProductModels
                 .Where(q => q.MakeId == makeId)
@@ -27,15 +27,6 @@ namespace ShoeShopApp.Repositories.Repositories
             return models;
         }
 
-        public Task<ProductModel> GetCarModelWithDetails(int id)
-        {
-            return _context.ProductModels.Include(q => q.Make).FirstOrDefaultAsync(q => q.Id == id);
-        }
-
-        public Task<List<ProductModel>> GetProductModelsByMake(int makeId)
-        {
-            throw new NotImplementedException();
-        }
 
         public Task<ProductModel> GetProductModelWithDetails(int id)
         {
