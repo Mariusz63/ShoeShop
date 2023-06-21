@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Car Booking Application</title>
+    <title>@ViewData["Title"] - Shoe Shop Application</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css">
@@ -12,9 +12,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Shoe Shop Application</a>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3">
+            <div class="header">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Shoe Shop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
                     <partial name="_LoginPartial" />
                 </div>
                 <form class="d-flex">
-                    <input class="form-control me-sm-2" type="search" placeholder="Search">
+                    <input class="searchhere" type="search" placeholder="Search">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
@@ -52,9 +52,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer">
         <div class="container">
-            &copy; 2023 - Shoe Shop Application- <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2023 - Shoe Shop Site | <span id="amogus">Current Page -</span>
         </div>
     </footer>
 
@@ -62,6 +62,32 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/sweetalert/sweetalert.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        window.onscroll = function () { myFunction() };
+
+        var header = document.getElementsByClassName("navbar");
+        var sticky = header[0].offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header[0].classList.add("sticky");
+            } else {
+                header[0].classList.remove("sticky");
+            }
+        }
+        var currentPage = window.location.pathname.split('/').pop();
+        window.addEventListener('DOMContentLoaded', function () {
+
+            var footerTextElement = document.querySelector('.footer span');
+            if(currentPage === ''){
+                footerTextElement.textContent += ' Home ';
+            }
+            else{
+                footerTextElement.textContent += ' ' + currentPage;
+            }
+
+        });
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
